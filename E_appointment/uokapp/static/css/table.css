@@ -1,0 +1,16 @@
+#table .container{
+  color:black;
+}
+table{
+  background:white;
+  border:5px solid orange;
+  width:40%;
+  height:400px;
+}
+td h1{
+  font-size: 100px;
+  text-align: center;
+}
+#login a{
+  color: grey;
+}

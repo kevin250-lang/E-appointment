@@ -1,0 +1,273 @@
+[
+{
+     "model": "uokapp.staffs",
+     "pk": 14,
+     "fields": {
+          "user": 26,
+          "phone": 7814514263,
+          "ViceChancellor": false,
+          "DVCA": false,
+          "dean": false,
+          "HOD": false,
+          "lecturer": false,
+          "registror": false,
+          "CFO": true,
+          "faculty": "Law Administration",
+          "campus": "Musanze",
+          "profile": "profile_pics/IMG-20190731-WA0031_rMaq2tO.jpg"
+     }
+},
+{
+     "model": "uokapp.staffs",
+     "pk": 17,
+     "fields": {
+          "user": 33,
+          "phone": 7858585962,
+          "ViceChancellor": false,
+          "DVCA": false,
+          "dean": false,
+          "HOD": false,
+          "lecturer": false,
+          "registror": true,
+          "CFO": false,
+          "faculty": "",
+          "campus": "Nyanza",
+          "profile": "profile_pics/Honore_essjt_20191013_130155_4rl35mz.jpg"
+     }
+},
+
+{
+     "model": "uokapp.student",
+     "pk": 19,
+     "fields": {
+          "user": 37,
+          "phone": 784858585,
+          "student": true,
+          "interns": false,
+          "depart": "BBIT",
+          "session": "Evening",
+          "campus": "Nyanza",
+          "profile": "profile_pics/IMG-20200114-WA0004.jpg"
+     }
+},
+{
+     "model": "uokapp.student",
+     "pk": 20,
+     "fields": {
+          "user": 38,
+          "phone": 781415538,
+          "student": true,
+          "interns": false,
+          "depart": "BIT",
+          "session": "Day",
+          "campus": "Kigali",
+          "profile": "profile_pics/51FwT8ZmNnL._AC_UY445_.jpg"
+     }
+},
+{
+     "model": "uokapp.appointment",
+     "pk": 38,
+     "fields": {
+          "student": 19,
+          "lecture": 17,
+          "suggestion_date": "2020-02-09",
+          "suggestion_hour": "15:00:00",
+          "end_time": "15:10:00",
+          "student_reason": "I want to meet you!",
+          "status": "rejected",
+          "suggested_date": "2020-01-19T18:05:00.779Z",
+          "seen": false
+     }
+},
+{
+     "model": "uokapp.appointment",
+     "pk": 39,
+     "fields": {
+          "student": 16,
+          "lecture": 17,
+          "suggestion_date": "2020-02-04",
+          "suggestion_hour": "13:00:00",
+          "end_time": "14:00:00",
+          "student_reason": "I want an appointment with you!",
+          "status": "rejected",
+          "suggested_date": "2020-02-03T12:10:01.982Z",
+          "seen": false
+     }
+},
+{
+     "model": "uokapp.appointment",
+     "pk": 40,
+     "fields": {
+          "student": 12,
+          "lecture": 14,
+          "suggestion_date": "2020-09-01",
+          "suggestion_hour": "05:00:00",
+          "end_time": "06:00:00",
+          "student_reason": "hgjgjhjgjhghjghjg",
+          "status": null,
+          "suggested_date": "2020-08-22T20:07:59.697Z",
+          "seen": false
+     }
+},
+{
+     "model": "uokapp.othersuggestion",
+     "pk": 23,
+     "fields": {
+          "appointment": 38,
+          "staffsuggestion": 17,
+          "studentsuggestion": null,
+          "suggestion_date": "2019-02-10",
+          "suggestion_hour": "15:50:00",
+          "end_time": "16:00:00",
+          "reason": "i will available at that time",
+          "status": "rejected",
+          "requested_date": "2020-01-19T18:06:52.748Z",
+          "seen": false
+     }
+},
+{
+     "model": "uokapp.othersuggestion",
+     "pk": 24,
+     "fields": {
+          "appointment": 38,
+          "staffsuggestion": null,
+          "studentsuggestion": 19,
+          "suggestion_date": "2020-02-11",
+          "suggestion_hour": "15:00:00",
+          "end_time": "15:10:00",
+          "reason": "Me too at that time i will not available. What this one",
+          "status": null,
+          "requested_date": "2020-01-19T18:08:21.622Z",
+          "seen": false
+     }
+},
+{
+     "model": "uokapp.othersuggestion",
+     "pk": 25,
+     "fields": {
+          "appointment": 38,
+          "staffsuggestion": 17,
+          "studentsuggestion": null,
+          "suggestion_date": "2019-02-10",
+          "suggestion_hour": "15:50:00",
+          "end_time": "16:00:00",
+          "reason": "i will available at that time",
+          "status": null,
+          "requested_date": "2020-01-19T18:15:53.141Z",
+          "seen": false
+     }
+},
+{
+     "model": "uokapp.othersuggestion",
+     "pk": 26,
+     "fields": {
+          "appointment": 38,
+          "staffsuggestion": null,
+          "studentsuggestion": 19,
+          "suggestion_date": "2020-02-11",
+          "suggestion_hour": "15:00:00",
+          "end_time": "15:10:00",
+          "reason": "Me too at that time i will not available. What this one",
+          "status": null,
+          "requested_date": "2020-01-19T18:18:27.792Z",
+          "seen": false
+     }
+},
+{
+     "model": "uokapp.othersuggestion",
+     "pk": 27,
+     "fields": {
+          "appointment": 39,
+          "staffsuggestion": 17,
+          "studentsuggestion": null,
+          "suggestion_date": "2020-02-10",
+          "suggestion_hour": "15:50:00",
+          "end_time": "16:00:00",
+          "reason": "at that time  i will be free come to see me",
+          "status": "rejected",
+          "requested_date": "2020-02-03T12:19:31.875Z",
+          "seen": false
+     }
+},
+
+{
+     "model": "uokapp.othersuggestion",
+     "pk": 29,
+     "fields": {
+          "appointment": 36,
+          "staffsuggestion": null,
+          "studentsuggestion": 12,
+          "suggestion_date": "2020-02-15",
+          "suggestion_hour": "15:50:00",
+          "end_time": "16:00:00",
+          "reason": "Vvggvfthhjjjjndeeeerffty",
+          "status": null,
+          "requested_date": "2020-04-14T11:00:35.420Z",
+          "seen": true
+     }
+},
+{
+     "model": "uokapp.othersuggestion",
+     "pk": 30,
+     "fields": {
+          "appointment": 36,
+          "staffsuggestion": null,
+          "studentsuggestion": 12,
+          "suggestion_date": "2020-02-15",
+          "suggestion_hour": "15:50:00",
+          "end_time": "16:00:00",
+          "reason": "Vvggvfthhjjjjndeeeerffty",
+          "status": null,
+          "requested_date": "2020-04-14T11:16:50.463Z",
+          "seen": true
+     }
+},
+{
+     "model": "uokapp.othersuggestion",
+     "pk": 31,
+     "fields": {
+          "appointment": 36,
+          "staffsuggestion": null,
+          "studentsuggestion": 12,
+          "suggestion_date": "2020-02-15",
+          "suggestion_hour": "15:50:00",
+          "end_time": "16:00:00",
+          "reason": "Vvggvfthhjjjjndeeeerffty",
+          "status": null,
+          "requested_date": "2020-04-14T11:21:09.054Z",
+          "seen": true
+     }
+},
+{
+     "model": "uokapp.othersuggestion",
+     "pk": 32,
+     "fields": {
+          "appointment": 39,
+          "staffsuggestion": null,
+          "studentsuggestion": 16,
+          "suggestion_date": "2020-08-15",
+          "suggestion_hour": "15:50:00",
+          "end_time": "16:00:00",
+          "reason": "what about this time",
+          "status": null,
+          "requested_date": "2020-07-15T13:34:17.680Z",
+          "seen": false
+     }
+},
+{
+     "model": "uokapp.othersuggestion",
+     "pk": 33,
+     "fields": {
+          "appointment": 36,
+          "staffsuggestion": 14,
+          "studentsuggestion": null,
+          "suggestion_date": "2020-02-15",
+          "suggestion_hour": "15:50:00",
+          "end_time": "16:00:00",
+          "reason": "mbdsjkdjkdhjdjfhkjsf",
+          "status": null,
+          "requested_date": "2020-08-17T18:00:55.806Z",
+          "seen": true
+     }
+}
+]

@@ -1,0 +1,15 @@
+{% extends 'index2.html' %}
+{% load bootstrap4 %}
+{% block content %}
+        <div>
+
+                <div class="col-md-8 col-md-offset-4">
+                   <h1>Request</h1>
+                <form class="login" method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" class="btn btn-primary" value="Request">
+                </form>
+                </div>
+        </div>
+{% endblock %}

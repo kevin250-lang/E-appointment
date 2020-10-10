@@ -1,0 +1,45 @@
+{% extends 'index2.html' %}
+
+{% block content %}
+    <div class="container">
+        <br> <h1>All your appointment</h1> <br>
+        <table style="background-color: whitesmoke; color: black ;border: solid black 1px; box-shadow: black 2px 3px 5px">
+
+            {% if user.is_staff %}
+            <thead>
+                <th style="border: solid black 1px">Student</th><th style="border: solid black 1px">Date</th><th style="border: solid black 1px">Requested date</th><th style="border: solid black 1px">To</th>
+            </thead>
+            {% for appointment in appointments %}
+            <tr style="border: solid black 1px">
+                <td style="border: solid black 1px"><a href="{% url 'appointment_detail' appointment.pk %}">{{ appointment.student }}</a></td>
+                <td style="border: solid black 1px">{{ appointment.date }}</td>
+                <td style="border: solid black 1px">{{ appointment.requested_date }}</td>
+                <td style="border: solid black 1px">{{ appointment.lecture }}</td>
+            </tr>
+            {% endfor %}
+            {% elif user.userinfor.is_dean or user.userinfor.is_HOD or user.userinfor.is_lecturer or user.userinfor.is_registror %}
+            <thead>
+                <th>Student</th><th>Date</th><th>Requested date</th>
+            </thead>
+            {% for appointment in appointments %}
+            <tr style="border: solid black 1px">
+                <td style="border: solid black 1px"><a href="{% url 'appointment_detail' appointment.pk %}">{{ appointment.student }}</a></td>
+                <td style="border: solid black 1px"><a href="{% url 'appointment_detail' appointment.pk %}">{{ appointment.date }}</a></td>
+                <td style="border: solid black 1px"><a href="{% url 'appointment_detail' appointment.pk %}">{{ appointment.requested_date }}</a></td>
+            </tr>
+            {% endfor %}
+            {% elif user.userinfor.is_student %}
+            <thead>
+                <th>Student</th><th>Date</th><th>Requested date</th>
+            </thead>
+            {% for appointment in appointments %}
+            <tr style="border: solid black 1px">
+                <td style="border: solid black 1px"><a href="{% url 'appointment_detail' appointment.pk %}">{{ appointment.student }}</a></td>
+                <td style="border: solid black 1px"><a href="{% url 'appointment_detail' appointment.pk %}">{{ appointment.date }}</a></td>
+                <td style="border: solid black 1px"><a href="{% url 'appointment_detail' appointment.pk %}">{{ appointment.requested_date }}</a></td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </table>
+    </div>
+{% endblock %}

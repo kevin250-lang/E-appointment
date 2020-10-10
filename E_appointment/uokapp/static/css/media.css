@@ -1,0 +1,106 @@
+@media(max-width:1200px){
+  .order{
+    width:50%;
+    min-height: 400px;
+    margin: auto;
+    border: 1px solid orange;
+    font-size:1.3pc;
+    margin-top:40px;
+    padding:20px 20px 20px 20px;
+  }
+}
+
+
+@media(max-width:800px){
+  .container{
+      width:100%;
+      margin:auto;
+      padding:0;
+      align-content: center;
+  }
+  header{
+      padding:0;
+      margin:0;
+      text-align:center;
+      width:100%;
+      background-color:rgb(240, 205, 205);
+      min-height: 140px;
+  }
+  #logo{
+      width:100%;
+      clear:both;
+      font-size: 2pc;
+      color:#310303;
+  }
+  #nav{
+    width:100%;
+    clear:both;
+    text-align:center;
+      margin-top:20px;
+
+  }
+  #nav ul{
+      float: none;
+  }
+  #search #Searchtype{
+      width:100%;
+      float:none;
+      text-align:center
+  }
+  #search #Searchtext{
+      width:100%;
+      float:none;
+      margin-top:5px;
+  }
+  #searchtext #sinput{
+      float:none;
+      margin-left:180px;
+      clear:both;
+      align:center;
+  }
+  #searchtext input[type="text"]{
+      width:250px;
+      height:30px;
+      font-size: 5mm;
+      clear:both;
+  }
+  #searchtext input[type="submit"]{
+      width:100px;
+      height:30px;
+      font-size: 5mm;
+      color:rgb(255, 145, 0);
+      clear:both;
+  }
+  #product .cakes{
+      width:100%;
+      float:none;
+      border: 1px solid white;
+      min-height: 400px;
+      text-align:center;
+      margin-top:20px;
+      margin-left:10px;
+      margin-bottom:10px;
+  }
+  .order{
+    width:70%;
+    min-height: 400px;
+    margin: auto;
+    border: 1px solid orange;
+    font-size:1.3pc;
+    margin-top:40px;
+    padding:20px 20px 20px 20px;
+    margin-bottom:40px;
+  }
+}
+
+@media(max-width:550px){
+  .order{
+    width:90%;
+    min-height: 400px;
+    margin: auto;
+    border: 1px solid orange;
+    font-size:1.3pc;
+    margin-top:40px;
+    padding:20px 20px 20px 20px;
+    margin-bottom:40px;
+  }}

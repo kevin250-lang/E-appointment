@@ -1,0 +1,24 @@
+{% extends 'index2.html' %}
+{% block content %}
+        <div class="container">
+            {% if user.userinfor.is_student %}
+                <div class="col-md-8 col-md-offset-4">
+                   <h1>You can ask for Appointment</h1>
+                <form class="login" method="POST">
+                    {% csrf_token %}
+                    {{ appointmentform.as_p }}
+                    <input type="submit" class="btn btn-primary" value="Request">
+                </form>
+                </div>
+            {% elif user.userinfor.is_dean or user.userinfor.is_HOD or userinfor.is_CFO or user.userinfor.is_lecturer or user.userinfor.is_registror %}
+                <div class="col-md-8 col-md-offset-4">
+                   <h1>You can ask for Appointment</h1>
+                <form class="login" method="POST">
+                    {% csrf_token %}
+                    {{ appointmentform.as_p }}
+                    <input type="submit" class="btn btn-primary" value="Request">
+                </form>
+                </div>
+            {% endif %}
+        <div>{{warning}}</div>
+{% endblock %}

@@ -1,0 +1,203 @@
+.showcase{
+  line-height: 40px;
+  width:100%;
+  vertical-align: middle;
+  background: url("../media/uok1.jpg") no-repeat;
+  background-size: cover ;
+  float: right;
+}
+#showcase h1{
+  line-height: 4.5pc;
+  vertical-align: middle;
+  color: white;
+  font-size:4pc;
+  text-align: center;
+}
+#showcase h2{
+  padding-top: 30 px;
+  line-height: 3.5pc;
+  vertical-align: middle;
+  color: white;
+  font-size:2pc;
+  text-align: center;
+}
+#showcase h3{
+  padding-top: 30 px;
+  line-height: 3.5pc;
+  vertical-align: middle;
+  color: white;
+  font-size:2pc;
+  text-align: center;
+}
+#showcase p{
+  color: white;
+  font-size:2.5pc;
+  text-align: center;
+}
+
+.block{
+  margin:auto;
+  text-align: center;
+}
+.staffregister{
+  background-color: black;
+  color: white;
+  opacity: 0.8;
+  border: 3px solid white;
+  border-radius: 20px;
+  padding:60px 20px;
+}
+.othersuggestiondetail{
+  margin-bottom: 100px;
+  clear: both;
+}
+.suggestiondetail{
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+.othersuggestion{
+  background-color: black;
+  color: white;
+  opacity: 0.8;
+  border: 3px solid white;
+  border-radius: 20px;
+  padding: 30px 20px;
+  margin-top: 0px;
+}
+textarea{
+  width:40%;
+  border-radius: 5px;
+}
+
+.nav-link{
+  color: white;
+}
+
+
+@media(max-width:1000px){
+  .showcase{
+    line-height: 20px;
+    vertical-align: middle;
+    background: url("../media/uok1.jpg") no-repeat;
+    background-size: cover ;
+  }
+  #showcase{
+  
+    width:100%;
+    margin: auto;
+    margin-top: 25px;
+    min-height: 550px;
+    text-shadow: 2px 2px 5px #070707;
+  }
+
+
+  #showcase h1{
+    padding-top: 250 px;
+    line-height: 3pc;
+    vertical-align: middle;
+    color: white;
+    font-size:2.5pc;
+    text-align: center;
+  }
+
+  #showcase h2{
+    padding-top: 30 px;
+    line-height: 2pc;
+    vertical-align: middle;
+    color: white;
+    font-size:2pc;
+    text-align: center;
+  }
+
+
+  #showcase p{
+    line-height: 40px;
+    color: white;
+    font-size:1.5pc;
+    text-align: center;
+  }
+
+}
+
+@media(max-width:700px){
+  .showcase{
+    line-height: 20px;
+    vertical-align: middle;
+    background: url("../media/uok1.jpg") no-repeat;
+    background-size: cover ;
+  }
+  #showcase{
+  
+    width:95%;
+    margin: auto;
+    margin-top: 25px;
+    min-height: 550px;
+    border-bottom: 3px solid rgb(255, 145, 0);
+    text-shadow: 2px 2px 5px #070707;
+  }
+  #showcase h1{
+    padding-top: 250 px;
+    line-height: 3.5pc;
+    vertical-align: middle;
+    color: white;
+    font-size:2.5pc;
+    text-align: center;
+  }
+  #showcase h2{
+    padding-top: 30 px;
+    line-height: 3pc;
+    vertical-align: middle;
+    color: white;
+    font-size:1.5pc;
+    text-align: center;
+  }
+  #showcase p{
+    line-height: 40px;
+    color: white;
+    font-size:1.5pc;
+    text-align: center;
+  }
+
+}
+
+
+
+@media(max-width:550px){
+  .showcase{
+    line-height: 20px;
+    vertical-align: middle;
+    background: url("../media/uok1.jpg") no-repeat;
+    background-size: cover ;
+  }
+  #showcase{
+   
+    width:95%;
+    margin: auto;
+    margin-top: 15px;
+    min-height: 550px;
+    border-bottom: 3px solid rgb(255, 145, 0);
+    text-shadow: 2px 2px 5px #070707;
+  }
+  #showcase h1{
+    margin-top: 150 px;
+    line-height: 2pc;
+    vertical-align: middle;
+    color: white;
+    font-size:1.8pc;
+    text-align: center;
+  }
+  #showcase h2{
+    padding-top: 10 px;
+    line-height: 3pc;
+    vertical-align: middle;
+    color: white;
+    font-size:1pc;
+    text-align: center;
+  }
+  #showcase p{
+    padding-top:  0px;
+    color: white;
+    font-size:1pc;
+    text-align: center;
+  }  
+}

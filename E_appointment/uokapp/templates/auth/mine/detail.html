@@ -1,0 +1,142 @@
+{% extends 'index2.html' %}
+{% block content %}
+<div class="container"> 
+<div class="row my-2">
+<div class="col-lg-8 ml-auto py-2" style="background-color:rgb(13, 7, 102); color:rgb(255, 255, 255); border-radius: 10px">
+    <br>
+    <div class="row">
+        <div class="col-md-3"><strong>Student : </strong></div>
+        <div class="col-md-9">{% if request.user.student%}{{ stusuggest.student }}{% else %}<a href="{{stusuggest.student.get_absolute_url}}" style="color:white">{{ stusuggest.student }}</a>{% endif %}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"><strong>Suggeted Date: </strong></div>
+        <div class="col-md-9">{{ stusuggest.suggested_date }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"><strong>Reason: </strong></div>
+        <div class="col-md-9">{{ stusuggest.student_reason }}</div>
+    </div><br>
+    <div class="row">
+        <div class="col-md-3"><strong>Status: </strong></div>
+        <div class="col-md-9">{{ stusuggest.status }}</div>
+    </div><br>
+    <div class="row">
+        {% if user.student and stusuggest.status is None %}
+        
+        <div class="col-md-3"><a class="btn btn-danger" href="{% url 'suggestion_delete' stusuggest.pk %}"> Delete </a></div>
+        
+        {% elif user.staffs or user.is_staff %}
+            {% if stusuggest.status is None %}
+                <div class="col-md-3"><a class="btn btn-primary" href="{% url 'approving_suggestion' stusuggest.pk %}"> Accept </a></div>
+                <div class="col-md-3"><a class="btn btn-warning" href="{% url 'denying_suggestion' stusuggest.pk %}"> Reject </a></div>
+                <div class="col-md-3"><a class="btn btn-danger" href="{% url 'approving_suggestion' stusuggest.pk %}"> Cancel </a></div>
+            {% elif stusuggest.status == "rejected" or stusuggest.status == "Canceled" %}
+                <div class="col-md-3"><a class="btn btn-warning" href="{% url 'add_others_suggestion' stusuggest.pk %}">suggest</a></div>
+            {% elif stusuggest.status == "Accepted" %}
+            <p>Try to be there at Time</p>
+            <div class="col-md-3"><a class="btn btn-danger" href="{% url 'approving_suggestion' stusuggest.pk %}"> Cancel </a></div>
+            {% endif %}
+        {% endif %}
+    </div><br>
+</div><div class="col-md-4"></div>
+</div>
+</div>
+{% if stusuggest.othersuggestion %}
+   {% for othersuggestion in stusuggest.othersuggestion.all %}
+    {% if othersuggestion.studentsuggestion %}
+    <div class="container">
+    <div class="row my-2">
+    <div class="col-lg-8 ml-auto py-2" style="background-color:rgb(13, 7, 102); color:rgb(255, 255, 255); border-radius: 10px">
+         <div class="row">
+            <div class="col-md-3"><strong>Student : </strong></div>
+            <div class="col-md-9">{% if user.student%}{{ othersuggestion.studentsuggestion }}{% else %}<a href="{{ othersuggestion.studentsuggestion.student.get_absolute_url}}" style="color:white">{{ othersuggestion.studentsuggestion }}</a>{% endif %}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><strong>Suggeted Date: </strong></div>
+            <div class="col-md-9">{{ othersuggestion.suggestion_date }}</div>
+        </div>
+        <div class="row">
+                <div class="col-md-3"><strong>Suggeted hour: </strong></div>
+                <div class="col-md-9">{{ othersuggestion.suggestion_hour }}</div>
+        </div>
+        <div class="row">
+                <div class="col-md-3"><strong>Suggeted end time: </strong></div>
+                <div class="col-md-9">{{ othersuggestion.end_time }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><strong>Reason: </strong></div>
+            <div class="col-md-9">{{ othersuggestion.reason }}</div>
+        </div><br>
+        <div class="row">
+            <div class="col-md-3"><strong>Status: </strong></div>
+            <div class="col-md-9">{{ othersuggestion.status }}</div>
+        </div><br>
+        <div class="row">
+                {% if user.student and othersuggestion.studentsuggestion and othersuggestion.status is None %}
+                <div class="col-md-3"><a class="btn btn-primary" href="{% url 'othersuggestion_delete' pk=othersuggestion.pk %}">Delete</a></div>
+                {% elif user.staffs and othersuggestion.studentsuggestion %}
+                    {% if othersuggestion.status is None %}
+                        <div class="col-md-3"><a class="btn btn-primary" href="{% url 'approving_other_suggestion' pk=othersuggestion.pk %}">Accept</a></div>
+                        <div class="col-md-3"><a class="btn btn-warning" href="{% url 'denying_other_suggestion' pk=othersuggestion.pk %}">Reject</a></div>
+                        <div class="col-md-3"><a class="btn btn-danger" href="{% url 'canceling_other_suggestion' pk=othersuggestion.pk %}">Cancel</a></div>
+                    {% elif othersuggestion.status == "rejected" or othersuggestion.status == "canceled" %}
+                        <div class="col-md-3"><a class="btn btn-warning" href="{% url 'add_others_suggestion' pk=stusuggest.pk %}">suggest</a></div>
+                    {% elif othersuggestion.status == "accepted" %}
+                        <p>Try to be there at Time</p>
+                    {% endif %}
+                {% endif %}
+        </div>
+    </div><div class="col-lg-4"></div>
+    </div>
+    </div>
+    {% elif othersuggestion.staffsuggestion %}
+    <div class="container">
+    <div class="row my-2">
+        <div class="col-lg-8 mr-auto py-2" style="background-color:rgb(116, 21, 21); color:rgb(255, 255, 255); border-radius: 10px">
+            <div class="row">
+                <div class="col-md-3"><strong>Name : </strong></div>
+                <div class="col-md-9">{{ othersuggestion.staffsuggestion }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><strong>Suggeted Date: </strong></div>
+                <div class="col-md-9">{{ othersuggestion.suggestion_date }}</div>
+            </div>
+            <div class="row">
+                    <div class="col-md-3"><strong>Suggeted hour: </strong></div>
+                    <div class="col-md-9">{{ othersuggestion.suggestion_hour }}</div>
+            </div>
+            <div class="row">
+                    <div class="col-md-3"><strong>Suggeted end time: </strong></div>
+                    <div class="col-md-9">{{ othersuggestion.end_time }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-3"><strong>Reason: </strong></div>
+                <div class="col-md-9">{{ othersuggestion.reason }}</div>
+            </div><br>
+            <div class="row">
+                <div class="col-md-3"><strong>Status: </strong></div>
+                <div class="col-md-9">{{ othersuggestion.status }}</div>
+            </div><br>
+            {% endif %}
+            <div class="row">
+                    {% if user.staffs and othersuggestion.staffsuggestion and othersuggestion.status is None %}
+                    <div class="col-md-3"><a class="btn btn-primary" href="{% url 'othersuggestion_delete' pk=othersuggestion.pk %}">Delete</a></div>
+                    {% elif user.student and othersuggestion.staffsuggestion %}
+                        {% if othersuggestion.status is None %}
+                    <div class="col-md-3"><a class="btn btn-primary" href="{% url 'approving_other_suggestion' pk=othersuggestion.pk %}">Approve</a></div>
+                    <div class="col-md-3"><a class="btn btn-warning" href="{% url 'denying_other_suggestion' pk=othersuggestion.pk %}">Deny</a></div>
+                    <div class="col-md-3"><a class="btn btn-danger" href="{% url 'canceling_other_suggestion' pk=othersuggestion.pk %}">Cancel</a></div>
+                        {% elif othersuggestion.status == "rejected" or othersuggestion.status == "canceled" %}
+                            <div class="col-md-3"><a class="btn btn-warning" href="{% url 'others_suggestion' pk=stusuggest.pk %}">suggest</a></div>
+                        {% elif othersuggestion.status == "accepted" %}
+                            <p>Try to be there at Time</p>
+                        {% endif %}
+                    {% endif %}  
+            </div> 
+        </div><div class="col-lg-4 ml-auto"></div>
+    </div>
+    </div>
+   {% endfor %}
+{% endif %}
+
+{% endblock %}

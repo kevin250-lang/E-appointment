@@ -1,0 +1,27 @@
+{% extends 'index2.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div class="row">
+        <p class="col-12"><h1>HELLO {{user.username}}</h1></p>
+    </div>
+    <div class="row">
+        {% if stusuggest and user.username == stusuggest.student %}
+            <h2 class="col-12">Do you want to delete your appointment.<br> for {{stusuggest.suggested_date}}</h2>
+        {% elif othersuggestion and user.username == othersuggestion.studentsuggestion %}
+            <h2 class="col-12">Do you want to delete your appointment. for {{othersuggestion.suggested_date}} </h2>
+        {% endif %}
+        <p class="col-12">If you want to proced place delete or place cancel to return to the list</p>
+    </div>
+    
+    <div class="row">
+        <form class="form-group" method="post">
+            {% csrf_token %}
+            {% if user.student %}
+            <a class="form-control btn btn-primary" href="{% url 'suggestion_list' %}">Cancel</a>
+            {% else %}
+            <a class="form-control btn btn-primary" href="{% url 'suggestion_list_staff' %}">Cancel</a>
+            {% endif %}
+            <input class="form-control btn btn-danger" type="submit" value="Delete">
+        </form>
+    </div>
+{% endblock %}

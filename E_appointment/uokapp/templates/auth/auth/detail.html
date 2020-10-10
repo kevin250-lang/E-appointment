@@ -1,0 +1,140 @@
+{% extends 'index.html' %}
+{% block content %}
+    {% if appointments %}
+    <br>
+    <div class="col-md-8" style="background-color: white; color:black; border-radius: 10px">
+        <br>
+        <div class="row">
+            <div class="col-md-3"><strong>To: </strong></div>
+            <div class="col-md-9">{{ appointments.lecture }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><strong>Reason: </strong></div>
+            <div class="col-md-9" >{{ appointments.reason }}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><strong>Request Date: </strong></div>
+            <div class="col-md-9">{{ appointments.date}}</div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"><strong>Sent Date: </strong></div>
+            <div class="col-md-9">{{ appointments.requested_date}}</div>
+        </div><br>
+        <div class="row">
+            <div class="col-md-4"><input class="btn btn-primary" type="submit" value="Aprove"></div>
+            <div class="col-md-4"><input class="btn btn-warning" type="submit" value="Suggest"></div>
+            <div class="col-md-4"><input class="btn btn-danger" type="submit" value="Deny"></div>
+        </div><br>
+    </div><div class="col-md-4"></div>
+        {% if user.userinfor.is_student %}
+            {% for feedback in appointments.feedbacks.all %}
+            <br>
+            <div class="col-md-4"></div>
+            <div class="col-md-8" style="float: right; background-color:darkslategrey; color:white; border-radius: 10px">
+                <br>
+                <div class="row">
+                    <div class="col-md-3"><strong>Author: </strong></div>
+                    <div class="col-md-9">{{ feedback.lecture }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><strong>Reply: </strong></div>
+                    <div class="col-md-9" >{{ feedback.text }}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"><strong>Reply Date: </strong></div>
+                    <div class="col-md-9">{{ feedback.respond_date }}</div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-4"><input class="btn btn-primary" type="submit" value="Aprove"></div>
+                    <div class="col-md-4"><input class="btn btn-warning" type="submit" value="Suggest"></div>
+                    <div class="col-md-4"><input class="btn btn-danger" type="submit" value="Deny"></div>
+                </div><br>
+            </div>
+            <br>
+            {% endfor %}
+        {% elif user.userinfor.is_dean or user.userinfor.is_HOD or userinfor.is_CFO or user.userinfor.is_lecturer or user.userinfor.is_registror %}
+            <br>
+            <div class="col-md-4"></div>
+            <div class="col-md-8" style="float: right; background-color:darkslategrey; color:white; border-radius: 10px">
+                <div class="col-md-12 col-md-offset-4">
+                   <h3>Give a feedback </h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ feedbackform.as_p }}
+                    <input type="submit" class="btn btn-primary" value="Request">
+                </form>
+                </div>
+            </div>
+        {% endif %}
+    {% elif schedules %}
+        <div class="">
+            <h2>{{ schedules.lecturer }}</h2>
+            <table>
+                <thead>
+                    <th>hours</th><th>firsthour</th><th>secondhour</th><th>thirdhour</th><th>fourthhour</th><th>fifthhour</th>
+                    <th>sixthhour</th><th>seventhhour</th><th>eighthhour</th><th>ninethhour</th><th>tenthhour</th>
+                    <th>eleventhhour</th><th>twelvethhour</th>
+                </thead>
+                <tr>
+                    <td>Event</td><td>{{schedules.firsthour}}</td><td>{{schedules.secondhour}}</td><td>{{schedules.thirdhour}}</td><td>{{schedules.fourthhour}}</td><td>{{schedules.fifthhour}}</td>
+                    <td>{{schedules.sixthhour}}</td><td>{{schedules.seventhhour}}</td><td>{{schedules.eighthhour}}</td><td>{{schedules.ninethhour}}</td><td>{{schedules.tenthhour}}</td>
+                    <td>{{schedules.eleventhhour}}</td><td>{{schedules.twelvethhour}}</td>
+                </tr>
+            </table>
+        </div>
+    {% elif userdetail %}
+        <div class="row">
+            <div class="col-md-3"><strong>First Name: </strong></div>
+            <div class="col-md-9">{{ userdetail.first_name }}</div>
+            <div class="col-md-3"><strong>last Name: </strong></div>
+            <div class="col-md-9">{{ userdetail.last_name }}</div>
+            <div class="col-md-3"><strong>UserName: </strong></div>
+            <div class="col-md-9">{{ userdetail.username }}</div>
+            <div class="col-md-3"><strong>E-mail: </strong></div>
+            <div class="col-md-9">{{ userdetail.email }}</div>
+            <div class="col-md-3"><strong>Phone: </strong></div>
+            <div class="col-md-9">{{ userinfordetail.phone }}</div>
+            <div class="col-md-3"><strong>User ID: </strong></div>
+            <div class="col-md-9">{{ userinfordetail.uid }}</div>
+            {% if userinfordetail.is_student %}
+                <div class='row'>
+                    <b>Student in {{ userinfordetail.depart }}</b>
+                </div>
+                <div class='row'>
+                    <b>Session : {{ userinfordetail.depart }}</b>
+                </div>
+            {% elif userinfordetail.is_dean %}
+                <div class='row'>
+                    <b>Dean of {{ userinfordetail.depart }}</b>
+                </div>
+            {% elif userinfordetail.is_HOD %}
+                <div class='row'>
+                    <b>HOD of {{ userinfordetail.depart }}</b>
+                </div>
+            {% elif userinfordetail.is_CFO %}
+                <div class='row'>
+                    <b>CFO in UoK {{ userinfordetail.campus }} campus</b>
+                </div>
+            {% elif userinfordetail.is_lecturer %}
+                <div class='row'>
+                    <b>Lecturer in {{ userinfordetail.depart }}</b>
+                </div>
+            {% elif userinfordetail.is_registror %}
+                <div class='row'>
+                    <b>Registror in UoK {{ userinfordetail.campus }} campus</b>
+                </div>
+            {% endif %}
+        </div>
+
+    {% elif feedbacks %}
+        <div class=''>
+            <div class='row'>
+                <b>Lecuter :</b> {{ feedbacks.lecturer }}
+
+            </div>
+            <div class='row'>
+                <b>Reason :</b> <P>{{ feedbacks.text }}</P>
+            </div>
+        </div>
+    {% endif %}
+{% endblock%}

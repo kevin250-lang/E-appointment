@@ -1,0 +1,58 @@
+[
+{
+     "model": "uokapp.student",
+     "pk": 12,
+     "fields": {
+          "user": 27,
+          "phone": 78455444522,
+          "student": true,
+          "interns": false,
+          "depart": "BBIT",
+          "session": "Day",
+          "campus": "Kigali",
+          "profile": "profile_pics/bertin1.jpg"
+     }
+},
+{
+     "model": "uokapp.student",
+     "pk": 16,
+     "fields": {
+          "user": 34,
+          "phone": 2507845721445,
+          "student": true,
+          "interns": false,
+          "depart": "BIT",
+          "session": "Day",
+          "campus": "Kigali",
+          "profile": "profile_pics/DSC_6430_9JDfYRQ.JPG"
+     }
+},
+{
+     "model": "uokapp.student",
+     "pk": 19,
+     "fields": {
+          "user": 37,
+          "phone": 784858585,
+          "student": true,
+          "interns": false,
+          "depart": "BBIT",
+          "session": "Evening",
+          "campus": "Nyanza",
+          "profile": "profile_pics/IMG-20200114-WA0004.jpg"
+     }
+},
+{
+     "model": "uokapp.student",
+     "pk": 20,
+     "fields": {
+          "user": 38,
+          "phone": 781415538,
+          "student": true,
+          "interns": false,
+          "depart": "BIT",
+          "session": "Day",
+          "campus": "Kigali",
+          "profile": "profile_pics/51FwT8ZmNnL._AC_UY445_.jpg"
+     }
+}
+]

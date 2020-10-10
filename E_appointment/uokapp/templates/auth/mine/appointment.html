@@ -1,0 +1,14 @@
+{% extends 'index2.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<center>
+            <div class="col-lg-12">
+                <h1>You can Ask for Appointment</h1>
+                <form class="login" method="POST">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <input type="submit" class="btn btn-primary" value="Request">
+                </form>
+            </div>
+        </center>
+{% endblock %}

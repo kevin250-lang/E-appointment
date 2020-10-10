@@ -1,0 +1,102 @@
+{% extends 'index2.html' %}
+{% load staticfiles %}
+{% block content %}
+{{request.user}}
+<div class="container">
+{% if stusuggest or stasuggest or asuggest %}
+    <div class="row text-center">
+        <center><h1>All Request</h1></center>
+    </div>
+    <div class="row">
+        <table class="col-lg-12 table my-3">
+            {% if stusuggest %}
+                <thead>
+                    <tr class="bg-primary text-white">
+                        <th>Staff name</th>
+                        <th>Status</th>
+                        <th>Requested date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appointment in stusuggest %}
+                <tr style="border: solid black 1px">
+                    <td style="border: solid black 1px">{{ appointment.lecture }}</td>
+                    {% if appointment.status is None %}
+                        <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">New Request</a></td>
+                    {% elif appointment.status == "accepted" %}
+                        <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">Accepted</a></td>
+                    {% elif appointment.othersuggestion %}
+                        <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">
+                            {% for statuses in appointment.othersuggestion.all %}
+                                {% if forloop.last %}
+                                    {{ statuses.status }}
+                                {% endif %}
+                            {% endfor %}
+                        </a></td>
+                    {% else %}
+                        <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">Unreplied</a></td>
+                    {% endif %}
+                    <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">{{ appointment.suggested_date }}</a></td>
+                </tr>
+                {% endfor %}
+            {% elif stasuggest %}
+                <thead>
+                    <th style="border: solid black 1px">Student</th><th style="border: solid black 1px">Status</th><th style="border: solid black 1px">Requested date</th>
+                </thead>
+                {% for appointment in stasuggest %}
+                <tr style="border: solid black 1px">
+                    <td style="border: solid black 1px"><a href="{% url 'student_detail' appointment.student.pk %}">{{ appointment.student }}</a></td>
+                    {% if appointment.status is None %}
+                        <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">New Request</a></td>
+                    {% elif appointment.status == "accepted" %}
+                        <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">Accepted</a></td>
+                    {% elif appointment.othersuggestion %}
+                        <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">
+                            {% for statuses in appointment.othersuggestion.all %}
+                                {% if forloop.last %}
+                                    {{ statuses.status }}
+                                {% endif %}
+                            {% endfor %}
+                        </a></td>
+                    {% else %}
+                        <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">{{appointment.status}}</a></td>
+                    {% endif %}
+                    <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">{{ appointment.suggested_date }}</a></td>
+                </tr>
+                {% endfor %}
+    
+            {% elif asuggest %}
+                <thead>
+                    <th style="border: solid black 1px">Student</th><th style="border: solid black 1px">Staff</th><th style="border: solid black 1px">Status</th><th style="border: solid black 1px">Requested date</th>
+                </thead>
+                {% for appointment in asuggest %}
+                <tr style="border: solid black 1px">
+                    <td style="border: solid black 1px">{{ appointment.student }}</td>
+                    <td style="border: solid black 1px">{{ appointment.lecture }}</td>
+                    {% if appointment.status is None %}
+                        <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">New Request</a></td>
+                    {% elif appointment.status == "accepted" %}
+                        <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">Accepted</a></td>
+                    {% elif appointment.othersuggestion %}
+                        <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">
+                            {% for statuses in appointment.othersuggestion.all %}
+                                {% if forloop.last %}
+                                    {{ statuses.status }}
+                                {% endif %}
+                            {% endfor %}
+                        </a></td>
+                    {% else %}
+                        <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">Unreplied</a></td>
+                    {% endif %}
+                    <td style="border: solid black 1px"><a href="{% url 'suggestion_detail' appointment.pk %}">{{ appointment.suggested_date }}</a></td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            {% endif %}
+        </table>
+    </div>
+{% else %}
+<center><br> <h1>No Request asked </h1> <br></center>
+{% endif %}
+</div>
+{% endblock %}

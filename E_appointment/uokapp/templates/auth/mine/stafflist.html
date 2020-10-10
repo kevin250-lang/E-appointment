@@ -1,0 +1,316 @@
+{% extends 'index2.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="container">
+{% if Searched or Istaffs or Fstaffs or Lstaffs or Kstaffs or Mstaffs or Nstaffs or research %}
+    {% if Searched %}
+    <div class="row">
+        <center><h3><p>You searched for "{{request.GET.queri}}"</p></h3></center>
+    </div>
+    <div class="row">
+        <table class="col-lg-12 table">
+            <thead>
+                <tr class="bg-primary text-white">
+                    <th>Names</th>
+                    <th>Duty</th>
+                    <th>Campus</th>
+                    <th>Request Appointment Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for staff in Searched %}
+                <tr> 
+                    <td><a href="{% url 'staff_detail' staff.pk %}">{{ staff.user.first_name }} {{ staff.user.last_name }}</a></td>
+                    <td>
+                            {% if staff.is_dean %}
+                            DEAN
+                        {% elif staff.is_HOD %}
+                            HOD
+                        {% elif staff.is_lecturer %}
+                            LECTURER
+                        {% elif staff.is_registror %}
+                            REGISTROR
+                        {% elif staff.is_CFO %}
+                            CFO
+                        {% endif %}
+                    </td>
+                    <td>{{ staff.campus }}</td>
+                    <td><a href="{% url 'student_suggestion' staff.pk %}">Request</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% elif Istaffs %}
+    <div class="row">
+        <center><h1><p>All IT Staff</p></h1></center>
+    </div>
+    <div class="row">
+        <table class="col-lg-12 table">
+            <thead>
+                <tr class="bg-primary text-white">
+                    <th>Names</th>
+                    <th>Duty</th>
+                    <th>Campus</th>
+                    <th>Request Appointment Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for staff in Istaffs %}
+                <tr> 
+                    <td><a href="{% url 'staff_detail' staff.pk %}">{{ staff.user.first_name }} {{ staff.user.last_name }}</a></td>
+                    <td>
+                            {% if staff.is_dean %}
+                            DEAN
+                        {% elif staff.is_HOD %}
+                            HOD
+                        {% elif staff.is_lecturer %}
+                            LECTURER
+                        {% elif staff.is_registror %}
+                            REGISTROR
+                        {% elif staff.is_CFO %}
+                            CFO
+                        {% endif %}
+                    </td>
+                    <td>{{ staff.campus }}</td>
+                    <td><a href="{% url 'student_suggestion' staff.pk %}">Request</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% elif Fstaffs %}
+        <div class="row">
+            <center><h1><p>All Financial Staff</p></h1></center>
+        </div>
+        <div class="row">
+            <table class="col-lg-12 table my-3">
+                <thead>
+                    <tr class="bg-primary text-white">
+                        <th>Names</th>
+                        <th>Duty</th>
+                        <th>Campus</th>
+                        <th>Request Appointment Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for staff in Fstaffs %}
+                    <tr>
+                        <td><a href="{% url 'staff_detail' staff.pk %}">{{ staff.user.first_name }} {{ staff.user.last_name }}</a></td>
+                        <td>
+                                {% if staff.is_dean %}
+                                DEAN
+                            {% elif staff.is_HOD %}
+                                HOD
+                            {% elif staff.is_lecturer %}
+                                LECTURER
+                            {% elif staff.is_registror %}
+                                REGISTROR
+                            {% elif staff.is_CFO %}
+                                CFO
+                            {% endif %}
+                        </td>
+                        <td>{{ staff.campus }}</td>
+                        <td><a href="{% url 'student_suggestion' staff.pk %}">Request</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% elif Lstaffs %}
+        <div class="row">
+            <h1><p>All Law Staff</p></h1>
+        </div>
+        <div class="row">
+            <table class="col-lg-12 table my-3">
+                <thead>
+                    <tr class="bg-primary text-white">
+                        <th>Names</th>
+                        <th>Duty</th>
+                        <th>Campus</th>
+                        <th>Request Appointment Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for staff in Lstaffs %}
+                    <tr>
+                        <td><a href="{% url 'staff_detail' staff.pk %}">{{ staff.user.first_name }} {{ staff.user.last_name }}</a></td>
+                        <td>
+                            {% if staff.is_dean %}
+                            DEAN
+                            {% elif staff.is_HOD %}
+                            HOD
+                            {% elif staff.is_lecturer %}
+                            LECTURER
+                            {% elif staff.is_registror %}
+                            REGISTROR
+                            {% elif staff.is_CFO %}
+                            CFO
+                            {% endif %}
+                        </td>
+                        <td>{{ staff.campus }}</td>
+                        <td><a href="{% url 'student_suggestion' staff.pk %}">Request</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% elif Kstaffs %}
+        <div class="row">
+            <center><h1><p>All KIGALI CAMPUS Staff</p></h1></center>
+        </div>
+        <div class="row">
+            <table class="col-lg-12 table my-3">
+                <thead>
+                    <tr class="bg-primary text-white">
+                        <th>Names</th>
+                        <th>Duty</th>
+                        <th>Campus</th>
+                        <th>Request Appointment Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for staff in Kstaffs %}
+                    <tr>
+                        <td><a href="{% url 'staff_detail' staff.pk %}">{{ staff.user.first_name }} {{ staff.user.last_name }}</a></td>
+                        <td>
+                            {% if staff.is_dean %}
+                            DEAN
+                            {% elif staff.is_HOD %}
+                            HOD
+                            {% elif staff.is_lecturer %}
+                            LECTURER
+                            {% elif staff.is_registror %}
+                            REGISTROR
+                            {% elif staff.is_CFO %}
+                            CFO
+                            {% endif %}
+                        </td>
+                        <td>{{ staff.campus }}</td>
+                        <td><a href="{% url 'student_suggestion' staff.pk %}">Request</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% elif Mstaffs %}
+        <div class="row">
+            <center><h1><p>All MUSANZE CAMPUS Staff</p></h1></center>
+        </div>
+        <div class="row">
+            <table class="col-lg-12 table my-3">
+                <thead>
+                    <tr class="bg-primary text-white">
+                        <th>Names</th>
+                        <th>Duty</th>
+                        <th>Campus</th>
+                        <th>Request Appointment Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for staff in Mstaffs %}
+                    <tr>
+                        <td><a href="{% url 'staff_detail' staff.pk %}">{{ staff.user.first_name }} {{ staff.user.last_name }}</a></td>
+                        <td>
+                            {% if staff.is_dean %}
+                            DEAN
+                            {% elif staff.is_HOD %}
+                            HOD
+                            {% elif staff.is_lecturer %}
+                            LECTURER
+                            {% elif staff.is_registror %}
+                            REGISTROR
+                            {% elif staff.is_CFO %}
+                            CFO
+                            {% endif %}
+                        </td>
+                        <td>{{ staff.campus }}</td>
+                        <td><a href="{% url 'student_suggestion' staff.pk %}">Request</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% elif Nstaffs %}
+        <div class="row">
+            <center><h1><p>All NYANZA CAMPUS Staff</p></h1></center>
+        </div>
+        <div class="row">
+            <table class="col-lg-12 table my-3">
+                <thead>
+                    <tr class="bg-primary text-white">
+                        <th>Names</th>
+                        <th>Duty</th>
+                        <th>Campus</th>
+                        <th>Request Appointment Link</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for staff in Nstaffs %}
+                    <tr >
+                        <td><a href="{% url 'staff_detail' staff.pk %}">{{ staff.user.first_name }} {{ staff.user.last_name }}</a></td>
+                        <td>
+                            {% if staff.is_dean %}
+                            DEAN
+                            {% elif staff.is_HOD %}
+                            HOD
+                            {% elif staff.is_lecturer %}
+                            LECTURER
+                            {% elif staff.is_registror %}
+                            REGISTROR
+                            {% elif staff.is_CFO %}
+                            CFO
+                            {% endif %}
+                        </td>
+                        <td>{{ staff.campus }}</td>
+                        <td><a href="{% url 'student_suggestion' staff.pk %}">Request</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% elif research %}
+            <div class="row">
+                <center><h1><p>All staff</p></h1></center>
+            </div>
+            <div class="row">
+                <table class="col-lg-12 table my-3">
+                    <thead>
+                        <tr class="bg-primary text-white">
+                            <th>Names</th>
+                            <th>Duty</th>
+                            <th>Campus</th>
+                            <th>Request Appointment Link</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for staff in research %}
+                        <tr>
+                            <td><a href="{% url 'staff_detail' staff.pk %}">{{ staff.user.first_name }} {{ staff.user.last_name }}</a></td>
+                            <td>
+                                {% if staff.is_dean %}
+                                DEAN
+                                {% elif staff.is_HOD %}
+                                HOD
+                                {% elif staff.is_lecturer %}
+                                LECTURER
+                                {% elif staff.is_registror %}
+                                REGISTROR
+                                {% elif staff.is_CFO %}
+                                CFO
+                                {% endif %}
+                            </td>
+                            <td>{{ staff.campus }}</td>
+                            <td><a href="{% url 'student_suggestion' staff.pk %}">Request</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    {% endif %}
+{% else %}
+    <center><h2><i>We have no one in that field/cumpas </i></h2></center>
+{% endif %}
+</div>
+
+{% endblock %}

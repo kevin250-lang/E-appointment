@@ -1,0 +1,26 @@
+{% extends 'index2.html' %}
+{% block content %}
+    <div class="jumbotron">
+        <div class="container">
+            {% if registered %}
+                <h1>thank you for registering</h1>
+            {% else %}
+            <h1>Register Here</h1>
+                <div class="col-lg-6">
+                    <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% for forms in userform %}
+                        {{forms.label}}<br>
+                        <p>{{forms}}</p>
+                        {% endfor %}
+                        {% for forms in staffform %}
+                        {{forms.label}}<br>
+                        <p>{{forms}}</p>
+                        {% endfor %}
+                        <input type="submit" class="btn btn-primary" value="Register"/>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

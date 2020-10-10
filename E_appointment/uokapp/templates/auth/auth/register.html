@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+{% block content %}
+<div class="jumbotron">
+    {% if registered %}
+        <h1>thank you for registering</h1>
+    {% else %}
+        <form class="form-horizontal" role="form" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="col-sm2 control-label" for="first_name">First name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="first_name" placeholder="Enter your first_name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm2 control-label" for="last_name">Fast name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="last_name" placeholder="Enter your last_name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm2 control-label" for="username">Username</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="username" placeholder="Enter your username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm2 control-label" for="email">Email</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="email" placeholder="Enter your email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm2 control-label" for="uid">User id</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="uid" placeholder="Enter your User id">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm2 control-label" for="phone">phone</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" id="phone" placeholder="Enter your phone">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm2 control-label" for="password">Password</label>
+                <div class="col-sm-10">
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                </div>
+            </div>
+            {{ lecturerform.as_p }}
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

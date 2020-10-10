@@ -1,0 +1,198 @@
+body{
+    padding:0;
+    margin:0;
+    background:#310303;
+    color:rgb(255, 145, 0);
+
+}
+header{
+    padding:0;
+    margin:0;
+    width:100%;
+    background-color:rgb(240, 205, 205);
+    min-height: 80px;
+}
+a{
+    padding:0;
+    margin:0;
+    text-decoration: none;
+}
+.container{
+    width:80%;
+    margin:auto;
+    padding:0;
+    align-content: center;
+}
+ul,h1,p,input{
+    padding:0;
+    margin:0;
+}
+li{
+    padding:0;
+    list-style: none;
+    display: inline;
+}
+.color{
+  color:red;
+}
+#logo{
+    width:30%;
+    float:left;
+    font-size: 2pc;
+    color:#310303;
+}
+#nav{
+    width:69%;
+    float:right;
+    margin-top:20px;
+
+}
+#nav a{
+    padding:5px 20px 5px 20px;
+    color:black;
+    font-size: 1.3pc;
+    border-right:1px solid black;
+}
+#nav ul{
+    float: right;
+}
+#nav a:hover{
+    color: rgb(255, 145, 0);
+    font-size:1.2pc;
+}
+#cakeshow{
+    width:100%;
+    min-height: 550px;
+    font-size:3pc;
+    text-align: center;
+    border-bottom: 3px solid rgb(255, 145, 0);
+    background: url("../img/Sweets_Swiss_roll_Chocolate_Blackberry.jpeg") 0 -0px;
+    text-shadow: 2px 2px 5px #070707;
+}
+#cakeshow h1{
+    padding-top:80px;
+}
+#search{
+    background:rgb(240, 205, 205);
+    min-height: 50px;
+    border-bottom: 3px solid rgb(255, 145, 0);
+    color:#310303;
+    vertical-align: middle;
+}
+#search #Searchtype{
+    width:40%;
+    float:left;
+}
+#search #Searchtext{
+    width:60%;
+    float:right;
+    margin-top:5px;
+}
+#searchtext #sinput{
+    float:right;
+    margin-left:10px;
+}
+#searchtext input[type="text"]{
+    width:250px;
+    height:30px;
+    font-size: 5mm;
+}
+#searchtext input[type="submit"]{
+    width:100px;
+    height:30px;
+    font-size: 5mm;
+    color:rgb(255, 145, 0);
+}
+#product .cakes{
+    width:30%;
+    float:left;
+    border: 1px solid white;
+    min-height: 400px;
+    text-align:center;
+    margin-top:20px;
+    margin-left:10px;
+    margin-bottom:10px;
+}
+#product a{
+  color:orange;
+}
+.cakes img{
+  width:80%;
+  min-height:50%;
+  margin-top:5px;
+  margin-left:2.5%;
+}
+.order{
+  width:40%;
+  min-height: 400px;
+  margin: auto;
+  border: 1px solid orange;
+  font-size:1.3pc;
+  margin-top:40px;
+  padding:20px 20px 20px 20px;
+  margin-bottom:40px;
+}
+.order input, .order label, .order select{
+  margin-left:20px;
+  margin-top:5px;
+
+}
+.order input[type="text"]{
+  width:70%;
+  height:30px;
+  font-size:1.1pc;
+  border:0;
+  border-radius:5px;
+}
+.order input[type="email"]{
+  width:70%;
+  height:30px;
+  font-size:1.1pc;
+  border:0;
+  border-radius:5px;
+}
+.order input[type="password"]{
+  width:70%;
+  height:30px;
+  font-size:1.1pc;
+  border:0;
+  border-radius:5px;
+}
+.order input[type="submit"]{
+  width:40%;
+  height:30px;
+  font-size:1.1pc;
+  border:0;
+  border-radius:5px;
+}
+.order select{
+  width:70%;
+  height:28px;
+  font-size:1.1pc;
+  border:0px;
+}
+#logos{
+    text-align:center;
+    font-size: 1.5pc;
+    color:orange;
+    padding-top:30px;
+}
+#login{
+    text-align:center;
+    font-size: 2pc;
+    color:orange;
+}
+#login a{
+  color: grey;
+}
+#footer{
+  width:100%;
+  min-height:30px;
+  background:rgb(240, 205, 205);
+  border-bottom: 3px solid rgb(255, 145, 0);
+  border-top: 3px solid rgb(255, 145, 0);
+  color:#310303;
+  text-align:center;
+  vertical-align: middle;
+  clear:both;
+}

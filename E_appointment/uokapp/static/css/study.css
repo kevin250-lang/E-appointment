@@ -1,0 +1,35 @@
+h1,h2,h3,img{
+    padding:0;
+    margin:0;
+
+}
+#slider img{
+    width:80%;
+    margin-left:50px;
+    float:left;
+}
+
+#lefter{
+    width: 5%;
+    height:200px;
+    color:white;
+    float:left;
+    border:3px solid white;
+    vertical-align: middle;
+    font-size:50px;
+    cursor:pointer;
+    padding-top:100px;
+
+}
+#righter{
+    width: 5%;
+    height:200px;
+    color:white;
+    float:right;
+    border:3px solid white;
+    vertical-align: middle;
+    font-size:50px;
+    cursor:pointer;
+    padding-top:100px;
+
+}

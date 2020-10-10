@@ -1,0 +1,26 @@
+{% extends 'index2.html' %}
+{% block content %}
+
+<center>
+    <div class="col-md-1"></div>
+    <div class="col-md-8">
+            <h1>Ask for Appointment</h1>
+        <form method="POST">
+             {% csrf_token %}
+             {% for forms in appointmentform %}
+             {{forms.label}}<br>
+             <p>{{ forms }}</p>
+             {% endfor %}
+
+             {% for forms in form %}
+             <p>{{forms.label}}</p>
+             <p>{{ forms }}</p>
+             {% endfor %}
+
+            <input type="submit" class="btn btn-primary" value="Submit">
+        </form>
+        <br>
+    </div>
+    <div class="col-md-3"></div>
+</center>
+{% endblock %}

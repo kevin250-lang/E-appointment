@@ -1,0 +1,44 @@
+{% extends 'index2.html' %}
+{% load staticfiles %}
+{% block content %}
+<br>
+
+    <center>
+        <div class="profile">
+            {% if userinfo.profile is None %}
+            <img src="../../../media/profile_pics/westbl.jpg" style="width:200px" alt=""><br>
+            {% else %}
+            <img src="{{userinfo.profile.url}}" alt="" style="width:200px"><br>
+            {% endif %}
+
+        </div>
+        <div>
+            <p><strong>Names:</strong><br>{{userinfo.user.first_name}} {{userinfo.user.last_name}}</p>
+        </div>
+        <div>
+            <p><strong>Duty:</strong><br>
+                {% if userinfo.is_dean %}
+                        DEAN
+                {% elif userinfo.is_HOD %}
+                        HOD
+                {% elif userinfo.is_lecturer %}
+                        LECTURER
+                {% elif userinfo.is_registror %}
+                        REGISTROR
+                {% elif userinfo.is_CFO %}
+                        CFO
+                {% elif userinfo.is_student %}
+                        Student
+                {% elif userinfo.is_student and userinfo.is_intern %}
+                        Student in internship
+                {% endif %}
+            </p>
+        </div>
+        <div>
+            <p><strong>Campus:</strong><br>{{userinfo.campus}}</p>
+        </div>
+        <div>
+            <p><strong>Phone:</strong><br>+250{{userinfo.phone}}</p>
+        </div>
+    </center>
+{% endblock%}

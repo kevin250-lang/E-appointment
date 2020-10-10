@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="{% static "css/mine.css" %}">
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/fonts.css" %}">
+
+    <script src="{% static "bootstrap/js/collapse.js" %}"></script>
+    <script src="{% static "bootstrap/js/dropdown.js" %}"></script>
+    <link rel="icon" type="image/png" href="{% static 'media/uok1.png'%}"/>
+    <title>UoK|Appointment System</title>
+  </head>
+  <body>
+      <div class="showcase">
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container">
+            <a href="{% url 'home' %}" class="navbar navbar-brand"><div class="uoklogo"><img src="{% static 'media/uok.png'%}" style="width:120px; height: 40px;"alt=""></div></a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar" > 
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbar">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="{% url 'home' %}" class="nav-link">Home</a>
+              </li>
+            {% if user.is_staff %}
+              <li class="nav-item">
+                <a href="/admin" class="nav-link">Admin</a>
+              </li>
+              <li class="nav-item">
+                  <a href="{% url 'staff_registration'%}" class="nav-link">Register</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'suggestion_list_admin' %}" class="nav-link">{{counter}}<img  src="{% static 'media/closed_enve.jpg'%}" style="max-width:30px; max-height: 20px;"/></a>
+              </li>
+            {% elif user.student.is_student %}
+              <li class="nav-item">
+                <a href="{% url 'suggestion_list' %}" class="nav-link">{{counter}}<img  src="{% static 'media/closed_enve.jpg'%}" style="max-width:30px; max-height: 20px;"/></a>
+              </li>
+            {% elif user.staffs.is_dean or user.staffs.is_HOD or user.staffs.is_CFO or user.staffs.is_lecturer or user.staffs.is_registror %}
+              <li class="nav-item">
+                <a href="{% url 'suggestion_list_staff' %}" class="nav-link">{{counter}}<img  src="{% static 'media/closed_enve.jpg'%}" style="max-width:30px; max-height: 20px;"/></a>
+              </li>
+            {% endif %}
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a href="{% url 'logout' %}" class="nav-link">logout</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a href="{% url 'student_registration'%}" class="nav-link">Register</a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'login' %}" class="nav-link">Login</a>
+              </li>
+            {% endif %}
+            </ul>
+          </div>
+        </div>
+        </nav>
+      {% if user.is_authenticated and user.student %}
+      
+          <nav class="navbar navbar-expand-md navbar-dark" style="background-color:rgb(114, 3, 3);" >
+            <div class="container">
+                <a href="{% url 'all_staff' %}" class="navbar navbar-brand"><div class="uoklogo">UoK Members</div></a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar1">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="navbar1" style="color:brown;">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a href="{% url 'it_staff'%}" class="nav-link" style="color:white">IT Staff</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'law_staff'%}" class="nav-link" style="color:white">Law Staff</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'finance_staff'%}" class="nav-link" style="color:white">Finance Staff</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'kigali_staff'%}"  class="nav-link" style="color:white">Kigali Staff</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'musanze_staff'%}"class="nav-link" style="color:white">Musanze Staff</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{% url 'nyanza_staff'%}" class="nav-link" style="color:white">Nyanza Staff</a>
+                  </li>
+                </ul>
+              </div>
+          </div>
+          </nav>
+    {% endif %}
+      <div class="container">
+          <div class="my-5 py-5" id="showcase" style="width:100%;min-height:500px">
+              <h2 style="color:white;"><b>STUDENT ONLINE APPOINTMENT SYSTEM</b></h2>
+              <h1><b>UNIVERSITY OF KIGALI</b></h1>
+          </div>
+        </div>
+
+      <div class="othercontent">
+        {%if warning %}
+            <div class="alert alert-warning alert-dismissable">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
+              {{ warning }}
+            </div>
+        {% endif %}
+
+        {% block content %}
+        {% endblock %}
+      </div>
+      
+      <footer style="background-color:rgb(114, 3, 3);"><center><p style="color:white"> UNIVERSITY OF KIGALI </p></center></footer>
+    </div>
+      <script>
+          $(document).ready(function () {
+              $('#navbar').on('click', function () {
+                  $('#sidebar').toggleClass('active');
+              });
+          });
+      </script>
+    <script src="{% static "bootstrap/js/jquery-slim.min.js" %}"></script>
+    <script src="{% static 'bootstrap/js/proper.js' %}" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>
+    <script src="{% static "bootstrap/js/bootstrap.js" %}"></script>
+    <script src="{% static "bootstrap/js/bootstrapjquery.js" %}"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
+    
+
+  </body>
+</html>

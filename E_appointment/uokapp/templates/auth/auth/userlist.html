@@ -1,0 +1,9 @@
+{% extends 'index2.html' %}
+{% load bootstrap4 %}
+{% block content %}
+    {% for userinfor in object_list %}
+    <div class='col-md-12'>
+        <a href="{% url 'userdetail' userinfor.pk%}">{{User.username}}</a>
+    </div>
+    {% endfor %}
+{% endblock%}
