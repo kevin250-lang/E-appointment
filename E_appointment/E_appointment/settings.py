@@ -32,7 +32,7 @@ SECRET_KEY = 'q#u*mqdl@*db(o$3)4(_!bm^_5v0c*6_%1%d^oga7os@vi#6oa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','lacolhost','192.168.137.1']
+ALLOWED_HOSTS = ['127.0.0.1','lacolhost','kevin.pythonanywhere.com']
 
 
 # Application definition
